@@ -1,0 +1,13 @@
+command /warn <player> <text>:
+	permission: warn.use
+	trigger:
+		if player has permission "warn.use":
+			add 1 to {warns::%arg-1%}
+			send "&8[CHANGEME] You have been warned for %arg-2%" to arg-1
+			send "&8[CHANGEME] You have successfully warned %arg-1% for %arg-2%" to player
+		
+command /checkwarns <player>:
+	permission: warn.use
+	trigger:
+		if player has permission "warn.use":
+			send "&8[CHANGEME]%arg-1% has %{warns::%arg-1%}% warns!"
